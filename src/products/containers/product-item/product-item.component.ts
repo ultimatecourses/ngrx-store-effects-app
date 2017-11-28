@@ -40,7 +40,9 @@ export class ProductItemComponent implements OnInit {
     this.toppings$ = this.store.select(fromStore.getAllToppings);
   }
 
-  onSelect(event: number[]) {}
+  onSelect(event: number[]) {
+    console.log('onSelect:::', event);
+  }
 
   onCreate(event: Pizza) {}
 
