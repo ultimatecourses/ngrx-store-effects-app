@@ -144,8 +144,36 @@
           "name": "olive"
         },
         {
-          "id": 2,
-          "name": "bacon"
+          "id": 5,
+          "name": "mozzarella"
+        },
+        {
+          "id": 6,
+          "name": "mushroom"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        },
+        {
+          "id": 3,
+          "name": "basil"
+        },
+        {
+          "id": 4,
+          "name": "chili"
+        },
+        {
+          "id": 8,
+          "name": "onion"
+        },
+        {
+          "id": 12,
+          "name": "tomato"
+        },
+        {
+          "id": 11,
+          "name": "sweetcorn"
         }
       ],
       "id": 4
