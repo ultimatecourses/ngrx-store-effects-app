@@ -5,6 +5,7 @@ import * as fromRoot from '../../../app/store/reducers';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors/toppings.selectors';
+import * as fromHandlers from '../handlers';
 
 import { Topping } from '../../models/topping.model';
 
@@ -48,7 +49,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual({});
 
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
 
       expect(result).toEqual(entities);
     });
@@ -62,11 +63,11 @@ describe('ToppingsReducer Selectors', () => {
         .select(fromSelectors.getSelectedToppings)
         .subscribe(value => (result = value));
 
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
 
       expect(result).toEqual([]);
 
-      store.dispatch(new fromActions.VisualiseToppings([1, 3]));
+      store.dispatch(fromHandlers.VisualiseToppings.action([1, 3]));
 
       expect(result).toEqual([1, 3]);
     });
@@ -82,7 +83,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual([]);
 
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
 
       expect(result).toEqual(toppings);
     });
@@ -98,7 +99,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual(false);
 
-      store.dispatch(new fromActions.LoadToppingsSuccess([]));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.action([]));
 
       expect(result).toEqual(true);
     });
@@ -114,7 +115,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual(false);
 
-      store.dispatch(new fromActions.LoadToppings());
+      store.dispatch(fromHandlers.LoadToppings.action());
 
       expect(result).toEqual(true);
     });

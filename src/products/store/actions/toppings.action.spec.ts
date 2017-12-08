@@ -1,12 +1,12 @@
-import * as fromToppings from './toppings.action';
+import * as fromHandlers from '../handlers';
 
 describe('Toppings Actions', () => {
   describe('LoadToppings Actions', () => {
     describe('LoadToppings', () => {
       it('should create an action', () => {
-        const action = new fromToppings.LoadToppings();
+        const action = fromHandlers.LoadToppings.action();
         expect({ ...action }).toEqual({
-          type: fromToppings.LOAD_TOPPINGS,
+          type: fromHandlers.LoadToppings.type,
         });
       });
     });
@@ -14,10 +14,10 @@ describe('Toppings Actions', () => {
     describe('LoadToppingsFail', () => {
       it('should create an action', () => {
         const payload = { message: 'Load Error' };
-        const action = new fromToppings.LoadToppingsFail(payload);
+        const action = fromHandlers.LoadToppingsFail.action(payload);
 
         expect({ ...action }).toEqual({
-          type: fromToppings.LOAD_TOPPINGS_FAIL,
+          type: fromHandlers.LoadToppingsFail.type,
           payload,
         });
       });
@@ -30,10 +30,10 @@ describe('Toppings Actions', () => {
           { id: 2, name: 'mushroom' },
           { id: 3, name: 'basil' },
         ];
-        const action = new fromToppings.LoadToppingsSuccess(payload);
+        const action = fromHandlers.LoadToppingsSuccess.action(payload);
 
         expect({ ...action }).toEqual({
-          type: fromToppings.LOAD_TOPPINGS_SUCCESS,
+          type: fromHandlers.LoadToppingsSuccess.type,
           payload,
         });
       });
@@ -43,9 +43,9 @@ describe('Toppings Actions', () => {
   describe('VisualiseToppings Actions', () => {
     describe('VisualiseToppings', () => {
       it('should create an action', () => {
-        const action = new fromToppings.VisualiseToppings([1, 2, 3]);
+        const action = fromHandlers.VisualiseToppings.action([1, 2, 3]);
         expect({ ...action }).toEqual({
-          type: fromToppings.VISUALISE_TOPPINGS,
+          type: fromHandlers.VisualiseToppings.type,
           payload: [1, 2, 3],
         });
       });

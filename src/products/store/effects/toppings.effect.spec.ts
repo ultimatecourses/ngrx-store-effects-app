@@ -10,7 +10,7 @@ import { of } from 'rxjs/observable/of';
 
 import { ToppingsService } from '../../services/toppings.service';
 import * as fromEffects from './toppings.effect';
-import * as fromActions from '../actions/toppings.action';
+import * as fromHandlers from '../handlers';
 
 export class TestActions extends Actions {
   constructor() {
@@ -56,8 +56,8 @@ describe('ToppingsEffects', () => {
 
   describe('loadToppings$', () => {
     it('should return a collection from LoadToppingsSuccess', () => {
-      const action = new fromActions.LoadToppings();
-      const completion = new fromActions.LoadToppingsSuccess(toppings);
+      const action = fromHandlers.LoadToppings.action();
+      const completion = fromHandlers.LoadToppingsSuccess.action(toppings);
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });

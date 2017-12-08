@@ -4,7 +4,7 @@ import { Effect, Actions } from '@ngrx/effects';
 import { of } from 'rxjs/observable/of';
 import { map, catchError, switchMap } from 'rxjs/operators';
 
-import * as toppingsActions from '../actions/toppings.action';
+import * as fromHandlers from '../handlers';
 import * as fromServices from '../../services/toppings.service';
 
 @Injectable()
@@ -15,13 +15,13 @@ export class ToppingsEffects {
   ) {}
 
   @Effect()
-  loadToppings$ = this.actions$.ofType(toppingsActions.LOAD_TOPPINGS).pipe(
+  loadToppings$ = this.actions$.ofType(fromHandlers.LoadToppings.type).pipe(
     switchMap(() => {
       return this.toppingsService
         .getToppings()
         .pipe(
-          map(toppings => new toppingsActions.LoadToppingsSuccess(toppings)),
-          catchError(error => of(new toppingsActions.LoadToppingsFail(error)))
+          map(toppings => fromHandlers.LoadToppingsSuccess.action(toppings)),
+          catchError(error => of(fromHandlers.LoadToppingsFail.action(error)))
         );
     })
   );

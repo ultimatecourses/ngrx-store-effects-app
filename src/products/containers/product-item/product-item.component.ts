@@ -13,7 +13,7 @@ import { Topping } from '../../models/topping.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['product-item.component.scss'],
   template: `
-    <div 
+    <div
       class="product-item">
       <pizza-form
         [pizza]="pizza$ | async"
@@ -43,7 +43,7 @@ export class ProductItemComponent implements OnInit {
         const toppings = pizzaExists
           ? pizza.toppings.map(topping => topping.id)
           : [];
-        this.store.dispatch(new fromStore.VisualiseToppings(toppings));
+        this.store.dispatch(fromStore.VisualiseToppings.action(toppings));
       })
     );
     this.toppings$ = this.store.select(fromStore.getAllToppings);
@@ -51,7 +51,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSelect(event: number[]) {
-    this.store.dispatch(new fromStore.VisualiseToppings(event));
+    this.store.dispatch(fromStore.VisualiseToppings.action(event));
   }
 
   onCreate(event: Pizza) {

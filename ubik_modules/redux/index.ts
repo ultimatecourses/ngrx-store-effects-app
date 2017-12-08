@@ -49,11 +49,11 @@ export class StateAction<TState> extends StateActionPayload<TState, void> {
 export class StateHandler<TState> {
   private readonly actionMap: { [actionType: string] : StateActionBase<TState> } = {};
   constructor(
-    public stateId: string,
-    private initialState: TState
+    public readonly stateId: string,
+    public readonly initialState: TState
   ) { }
 
-  reducer(): (state: TState, action: Action | ActionWithPayload<any>) => TState {
+  get reducer(): (state: TState, action: Action | ActionWithPayload<any>) => TState {
     const actionMap = this.actionMap;
     const initialState = this.initialState;
     return function reducer(state: TState = initialState, action: ActionWithPayload<any>): TState {
