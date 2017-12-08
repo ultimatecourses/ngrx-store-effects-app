@@ -46,20 +46,21 @@ export class StateAction<TState> extends StateActionPayload<TState, void> {
   }
 }
 
+export interface StateReducer<TState> {
+  (state: TState, action: Action | ActionWithPayload<any>): TState
+}
+
 export class StateHandler<TState> {
   private readonly actionMap: { [actionType: string] : StateActionBase<TState> } = {};
+  private _reducer: StateReducer<TState>;
+
   constructor(
     public readonly stateId: string,
     public readonly initialState: TState
   ) { }
 
-  get reducer(): (state: TState, action: Action | ActionWithPayload<any>) => TState {
-    const actionMap = this.actionMap;
-    const initialState = this.initialState;
-    return function reducer(state: TState = initialState, action: ActionWithPayload<any>): TState {
-      const actionReducer = actionMap[action.type];
-      return actionReducer && actionReducer.reduce ? actionReducer.reduce(state, action.payload) : state;
-    }
+  get reducer(): StateReducer<TState> {
+    return this._reducer || (this._reducer = this.prepareReducer());
   }
 
   action(
@@ -81,6 +82,15 @@ export class StateHandler<TState> {
     const action = new StateActionPayload(type, reduce);
     this.actionMap[type] = action;
     return action;
+  }
+
+  private prepareReducer(): StateReducer<TState> {
+    const actionMap = this.actionMap;
+    const initialState = this.initialState;
+    return function reducer(state: TState = initialState, action: ActionWithPayload<any>): TState {
+      const actionReducer = actionMap[action.type];
+      return actionReducer && actionReducer.reduce ? actionReducer.reduce(state, action.payload) : state;
+    }
   }
 }
 
