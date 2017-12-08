@@ -10,12 +10,6 @@ export interface StateActionBase<TState> {
   reduce?: (state: TState, payload?: any) => TState;
 }
 
-export class StateActionVoid<TState> implements StateActionBase<TState> {
-  constructor(
-    public readonly type: string
-  ) {}
-}
-
 export class StateActionPayload<TState, TPayload> implements StateActionBase<TState> {
   constructor(
     public readonly type: string,
@@ -57,7 +51,9 @@ export class StateHandler<TState> {
   constructor(
     public readonly stateId: string,
     public readonly initialState: TState
-  ) { }
+  ) {
+
+  }
 
   get reducer(): StateReducer<TState> {
     return this._reducer || (this._reducer = this.prepareReducer());
