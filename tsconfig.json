@@ -17,6 +17,11 @@
     "rootDir": ".",
     "sourceMap": true,
     "skipLibCheck": true,
-    "target": "es5"
+    "target": "es5",
+    "paths": {
+      "@ubik/*": [
+        "ubik_modules/*"
+      ]
+    }
   }
 }
