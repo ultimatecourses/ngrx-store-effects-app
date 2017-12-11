@@ -20,8 +20,8 @@ export class ToppingsEffects {
       return this.toppingsService
         .getToppings()
         .pipe(
-          map(toppings => fromHandlers.LoadToppingsSuccess.action(toppings)),
-          catchError(error => of(fromHandlers.LoadToppingsFail.action(error)))
+          map(toppings => fromHandlers.LoadToppingsSuccess.create(toppings)),
+          catchError(error => of(fromHandlers.LoadToppingsFail.create(error)))
         );
     })
   );

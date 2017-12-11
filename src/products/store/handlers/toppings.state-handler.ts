@@ -1,5 +1,5 @@
 import { Topping } from '../../models/topping.model';
-import { StateHandler } from '../../../../ubik_modules/redux';
+import { StateHandler } from '../../../ngrx-extensions';
 
 export interface ToppingsState {
   entities: { [id: number]: Topping };
@@ -9,7 +9,6 @@ export interface ToppingsState {
 }
 
 export const ToppingsHandler = new StateHandler<ToppingsState>(
-  'toppings',
   {
     entities: {},
     loaded: false,

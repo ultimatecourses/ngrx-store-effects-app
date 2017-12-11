@@ -49,7 +49,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual({});
 
-      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create(toppings));
 
       expect(result).toEqual(entities);
     });
@@ -63,11 +63,11 @@ describe('ToppingsReducer Selectors', () => {
         .select(fromSelectors.getSelectedToppings)
         .subscribe(value => (result = value));
 
-      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create(toppings));
 
       expect(result).toEqual([]);
 
-      store.dispatch(fromHandlers.VisualiseToppings.action([1, 3]));
+      store.dispatch(fromHandlers.VisualiseToppings.create([1, 3]));
 
       expect(result).toEqual([1, 3]);
     });
@@ -83,7 +83,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual([]);
 
-      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create(toppings));
 
       expect(result).toEqual(toppings);
     });
@@ -99,7 +99,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual(false);
 
-      store.dispatch(fromHandlers.LoadToppingsSuccess.action([]));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create([]));
 
       expect(result).toEqual(true);
     });
@@ -115,7 +115,7 @@ describe('ToppingsReducer Selectors', () => {
 
       expect(result).toEqual(false);
 
-      store.dispatch(fromHandlers.LoadToppings.action());
+      store.dispatch(fromHandlers.LoadToppings.create());
 
       expect(result).toEqual(true);
     });

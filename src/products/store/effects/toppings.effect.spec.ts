@@ -56,8 +56,8 @@ describe('ToppingsEffects', () => {
 
   describe('loadToppings$', () => {
     it('should return a collection from LoadToppingsSuccess', () => {
-      const action = fromHandlers.LoadToppings.action();
-      const completion = fromHandlers.LoadToppingsSuccess.action(toppings);
+      const action = fromHandlers.LoadToppings.create();
+      const completion = fromHandlers.LoadToppingsSuccess.create(toppings);
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });

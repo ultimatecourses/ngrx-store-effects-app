@@ -159,8 +159,8 @@ describe('Pizzas Selectors', () => {
       ];
 
       store.dispatch(new fromActions.LoadPizzasSuccess(pizzas));
-      store.dispatch(fromHandlers.LoadToppingsSuccess.action(toppings));
-      store.dispatch(fromHandlers.VisualiseToppings.action([11, 9, 6]));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create(toppings));
+      store.dispatch(fromHandlers.VisualiseToppings.create([11, 9, 6]));
 
       store.dispatch({
         type: 'ROUTER_NAVIGATION',
