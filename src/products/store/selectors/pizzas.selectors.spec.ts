@@ -8,6 +8,7 @@ import * as fromRoot from '../../../app/store';
 import * as fromReducers from '../reducers/index';
 import * as fromActions from '../actions/index';
 import * as fromSelectors from '../selectors/pizzas.selectors';
+import * as fromHandlers from '../handlers';
 
 describe('Pizzas Selectors', () => {
   let store: Store<fromReducers.ProductsState>;
@@ -158,8 +159,8 @@ describe('Pizzas Selectors', () => {
       ];
 
       store.dispatch(new fromActions.LoadPizzasSuccess(pizzas));
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
-      store.dispatch(new fromActions.VisualiseToppings([11, 9, 6]));
+      store.dispatch(fromHandlers.LoadToppingsSuccess.create(toppings));
+      store.dispatch(fromHandlers.VisualiseToppings.create([11, 9, 6]));
 
       store.dispatch({
         type: 'ROUTER_NAVIGATION',
