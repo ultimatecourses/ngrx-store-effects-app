@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { effects, reducers } from './store';
-
 // components
 import * as fromComponents from './components';
-
 // containers
 import * as fromContainers from './containers';
-
 // services
 import * as fromServices from './services';
-import { getProductsState } from './store/reducers';
 
 // routes
 export const ROUTES: Routes = [
@@ -25,11 +21,11 @@ export const ROUTES: Routes = [
     component: fromContainers.ProductsComponent,
   },
   {
-    path: ':id',
+    path: 'new',
     component: fromContainers.ProductItemComponent,
   },
   {
-    path: 'new',
+    path: ':pizzaId',
     component: fromContainers.ProductItemComponent,
   },
 ];
