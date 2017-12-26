@@ -16,6 +16,7 @@ import * as fromContainers from './containers';
 
 // services
 import * as fromServices from './services';
+import { getProductsState } from './store/reducers';
 
 // routes
 export const ROUTES: Routes = [
