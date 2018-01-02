@@ -53,7 +53,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onCreate(event: Pizza) {
-
+    this.store.dispatch(new fromStore.CreatePizza(event));
   }
 
   onUpdate(event: Pizza) {
