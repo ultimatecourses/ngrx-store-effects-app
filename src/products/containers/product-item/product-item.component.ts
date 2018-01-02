@@ -40,7 +40,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSelect(event: number[]) {
-
+    console.log('onSelect:::', event);
   }
 
   onCreate(event: Pizza) {
