@@ -1,4 +1,4 @@
-import * as fromPizzas from '../actions/pizzas.action';
+import * as fromPizzas from '../actions/pizza.actions';
 import { Pizza } from '../../models/pizza.model';
 
 export interface PizzaState {

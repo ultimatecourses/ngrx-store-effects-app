@@ -1,1 +1,1 @@
-export * from './pizzas.selectors';
+export * from './pizza.selectors';
