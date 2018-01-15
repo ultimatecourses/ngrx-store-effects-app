@@ -1,4 +1,4 @@
-import * as fromToppings from '../actions/toppings.actions';
+import * as fromToppings from '../actions/topping.actions';
 import { Topping } from '../../models/topping.model';
 
 export interface ToppingState {
@@ -8,8 +8,8 @@ export interface ToppingState {
 }
 export const initialState: ToppingState = {
   entities: {},
-  loaded: false,
-  loading: false
+  loading: false,
+  loaded: false
 };
 
 export function reducer(
@@ -54,6 +54,6 @@ export function reducer(
   return state;
 }
 
-export const getToppingsEntities = (state: ToppingState) => state.entities;
+export const getToppingEntities = (state: ToppingState) => state.entities;
 export const getToppingsLoading = (state: ToppingState) => state.loading;
 export const getToppingsLoaded = (state: ToppingState) => state.loaded;

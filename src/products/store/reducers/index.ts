@@ -3,7 +3,7 @@ import {
   createFeatureSelector
 } from '@ngrx/store';
 import * as fromPizzas from './pizza.reducers';
-import * as fromToppings from './toppings.reducers';
+import * as fromToppings from './topping.reducers';
 
 export interface ProductsState {
   pizzas: fromPizzas.PizzaState;
