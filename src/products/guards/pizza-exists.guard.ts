@@ -5,6 +5,7 @@ import { Store } from "@ngrx/store";
 
 import { Observable } from "rxjs/Observable";
 import { tap, map, filter, take, switchMap } from "rxjs/operators";
+import * as fromRoot from '../../app/store';
 import * as fromStore from '../store';
 
 import { Pizza } from "../models/pizza.model";
@@ -37,6 +38,11 @@ export class PizzaExistsGuard implements CanActivate {
             tap(loaded => {
                 if (!loaded) {
                     this.store.dispatch(new fromStore.LoadPizzas())
+                }
+            }),
+            tap(loaded => {
+                if (!loaded) {
+                    this.store.dispatch(new fromRoot.Go({ path: ['/products'] }));
                 }
             }),
             filter(loaded => loaded),

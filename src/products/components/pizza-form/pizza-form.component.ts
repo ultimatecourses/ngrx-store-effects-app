@@ -143,7 +143,7 @@ export class PizzaFormComponent implements OnChanges {
       this.update.emit({ ...this.pizza, ...value });
     } else {
       this.store.dispatch(new fromRoot.Go({
-        path: ['/products'],
+        path: ['/products']
       }));
     }
   }
