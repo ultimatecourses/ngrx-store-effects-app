@@ -23,13 +23,6 @@ export function reducer(
         loading: true
       };
     }
-    case fromPizzas.LOAD_PIZZAS_FAIL: {
-      return {
-        ...state,
-        loading: false,
-        loaded: false
-      };
-    }
     case fromPizzas.LOAD_PIZZAS_SUCCESS: {
       const pizzas = action.payload;
       const entities = pizzas.reduce(
@@ -49,6 +42,36 @@ export function reducer(
         loaded: true,
         entities
       };
+    }
+    case fromPizzas.LOAD_PIZZAS_FAIL:
+    case fromPizzas.CREATE_PIZZA_FAIL:
+    case fromPizzas.UPDATE_PIZZA_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false
+      };
+    }
+    case fromPizzas.CREATE_PIZZA_SUCCESS:
+    case fromPizzas.UPDATE_PIZZA_SUCCESS: {
+      const pizza = action.payload;
+      const entities = {
+        ...state.entities,
+        [pizza.id]: pizza
+      }
+      return {
+        ...state,
+        entities
+      }
+    }
+    case fromPizzas.DELETE_PIZZA_SUCCESS: {
+      const pizza = action.payload;
+      const { [pizza.id]: deleted, ...entities } = state.entities
+      console.log(deleted);
+      return {
+        ...state,
+        entities
+      }
     }
   }
   return state;
