@@ -14,9 +14,9 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import * as fromStore from '../../store'
 import { Store } from "@ngrx/store";
 import * as fromRoot from '../../../app/store';
+import * as fromStore from '../../store'
 import { map } from 'rxjs/operators';
 
 import { Pizza } from '../../models/pizza.model';

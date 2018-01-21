@@ -12,10 +12,7 @@ export const initialState: PizzaState = {
   loading: false
 };
 
-export function reducer(
-  state = initialState,
-  action: fromPizzas.PizzasAction
-): PizzaState {
+export function reducer(state = initialState, action: fromPizzas.PizzasAction): PizzaState {
   switch (action.type) {
     case fromPizzas.LOAD_PIZZAS: {
       return {
