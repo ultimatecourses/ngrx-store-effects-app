@@ -43,8 +43,6 @@ export class ProductsComponent implements OnInit {
 
     // instead of top...
     this.pizzas$ = this.store.select(fromStore.getAllPizzas);
-
-
-
+    this.store.dispatch(new fromStore.LoadPizzas());
   }
 }
