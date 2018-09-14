@@ -2,15 +2,18 @@
   display: block;
   width: 100%;
 }
+
 .app {
   &__header {
     position: relative;
     text-align: center;
     padding: 35px 0;
   }
+
   &__logo {
     width: 75px;
   }
+
   &__nav {
     border-radius: 4px 4px 0 0;
     text-align: center;
@@ -18,10 +21,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     a {
       color: #fff;
       padding: 15px 35px;
-      font-family: 'cornerstone';
+      font-family: "cornerstone";
+
       &.active {
         background: #921217;
       }
@@ -34,15 +39,18 @@
     max-width: 1000px;
     border-radius: 4px;
   }
+
   &__container {
     padding: 35px;
   }
+
   &__footer {
     border-radius: 0 0 4px 4px;
     background: #0f9675;
     color: #fff;
     padding: 10px;
     text-align: center;
+
     p {
       margin: 0;
       font-weight: 600;

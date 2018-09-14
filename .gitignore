@@ -1,32 +1,39 @@
-# Project
-.idea
-.vscode
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Node
-node_modules
+# compiled output
+/dist
+/tmp
+/out-tsc
 
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
+# dependencies
+/node_modules
 
-## Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# Package Managers
-yarn-error.log
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log
+yarn-error.log
+testem.log
+/typings
 
-# Build
-build
-vendor/*-manifest.json
-
-# Docs
-gh-pages
+# System Files
+.DS_Store
+Thumbs.db

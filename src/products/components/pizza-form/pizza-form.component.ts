@@ -21,16 +21,16 @@ import { Pizza } from '../../models/pizza.model';
 import { Topping } from '../../models/topping.model';
 
 @Component({
-  selector: 'pizza-form',
+  selector: 'app-pizza-form',
   styleUrls: ['pizza-form.component.scss'],
   template: `
     <div class="pizza-form">
       <form [formGroup]="form">
-      
+
         <label>
           <h4>Pizza name</h4>
-          <input 
-            type="text" 
+          <input
+            type="text"
             formControlName="name"
             placeholder="e.g. Pepperoni"
             class="pizza-form__input"
@@ -41,7 +41,7 @@ import { Topping } from '../../models/topping.model';
             <p>Pizza must have a name</p>
           </div>
         </label>
-      
+
         <ng-content></ng-content>
 
         <label>
@@ -49,10 +49,10 @@ import { Topping } from '../../models/topping.model';
         </label>
         <div class="pizza-form__list">
 
-          <pizza-toppings
+          <app-pizza-toppings
             [toppings]="toppings"
             formControlName="toppings">
-          </pizza-toppings>
+          </app-pizza-toppings>
 
         </div>
 
