@@ -1,0 +1,15 @@
+sudo: required
+language: node_js
+node_js:
+  - "10"
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - "$HOME/.npm"
+addons:
+  chrome: stable
+script:
+  - ng lint
+  - ng test --watch false --code-coverage

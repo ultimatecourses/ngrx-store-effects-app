@@ -8,22 +8,22 @@ import { Topping } from '../../models/topping.model';
 import { ToppingsService } from '../../services/toppings.service';
 
 @Component({
-  selector: 'product-item',
+  selector: 'app-product-item',
   styleUrls: ['product-item.component.scss'],
   template: `
-    <div 
+    <div
       class="product-item">
-      <pizza-form
+      <app-pizza-form
         [pizza]="pizza"
         [toppings]="toppings"
         (selected)="onSelect($event)"
         (create)="onCreate($event)"
         (update)="onUpdate($event)"
         (remove)="onRemove($event)">
-        <pizza-display
+        <app-pizza-display
           [pizza]="visualise">
-        </pizza-display>
-      </pizza-form>
+        </app-pizza-display>
+      </app-pizza-form>
     </div>
   `,
 })
@@ -46,7 +46,7 @@ export class ProductItemComponent implements OnInit {
       if (param === 'new') {
         pizza = {};
       } else {
-        pizza = pizzas.find(pizza => pizza.id == parseInt(param, 10));
+        pizza = pizzas.find(p => p.id === parseInt(param, 10));
       }
       this.pizza = pizza;
       this.toppingsService.getToppings().subscribe(toppings => {

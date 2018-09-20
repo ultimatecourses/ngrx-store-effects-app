@@ -4,13 +4,13 @@ import { Pizza } from '../../models/pizza.model';
 import { PizzasService } from '../../services/pizzas.service';
 
 @Component({
-  selector: 'products',
+  selector: 'app-products',
   styleUrls: ['products.component.scss'],
   template: `
     <div class="products">
       <div class="products__new">
         <a
-          class="btn btn__ok" 
+          class="btn btn__ok"
           routerLink="./new">
           New Pizza
         </a>
@@ -19,10 +19,10 @@ import { PizzasService } from '../../services/pizzas.service';
         <div *ngIf="!((pizzas)?.length)">
           No pizzas, add one to get started.
         </div>
-        <pizza-item
+        <app-pizza-item
           *ngFor="let pizza of (pizzas)"
           [pizza]="pizza">
-        </pizza-item>
+        </app-pizza-item>
       </div>
     </div>
   `,
