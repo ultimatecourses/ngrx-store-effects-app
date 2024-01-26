@@ -42,9 +42,7 @@ some quick tasks:
 
 ```
 cd <ngrx-store-effects-app>
-yarn install
-# OR
-npm install
+npm install --legacy-peer-deps
 ```
 
 This will then setup all the development and production dependencies we need.
@@ -52,8 +50,6 @@ This will then setup all the development and production dependencies we need.
 Now simply run this to boot up the server:
 
 ```
-yarn start
-# OR
 npm start
 ```
 
