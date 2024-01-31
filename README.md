@@ -1,18 +1,18 @@
 <h1 align="center">
-<img width="40" valign="bottom" src="https://ultimateangular.com/assets/img/categories/ngrx.svg">
+<img width="40" valign="bottom" src="https://ultimatecourses.com/static/icons/ngrx.svg">
 NGRX: Store + Effects app
 </h1>
 <h4 align="center">Project seed app for our NGRX application using Angular, NGRX Store, Effects, Router Store.</h4>
 
 ---
 
-<a href="https://ultimateangular.com" target="_blank"><img src="https://ultimateangular.com/assets/img/banner.jpg"></a>
+<a href="https://ultimatecourses.com" target="_blank"><img src="https://ultimatecourses.com/static/banners/ultimate-ngrx-leader.svg"></a>
 
 ---
 
 > This repo serves as the seed project for the Ultimate Angular NGRX Store +
 > Effects course as well as the final solution in stepped branches, come and
-> [learn NGRX](https://ultimateangular.com/courses/) with us!
+> [learn NGRX](https://ultimatecourses.com/learn/ngrx-store-effects) with us!
 
 [Setup and install](#setup-and-install) | [Tasks](#tasks) |
 [Resources](#resources)
@@ -42,9 +42,7 @@ some quick tasks:
 
 ```
 cd <ngrx-store-effects-app>
-yarn install
-# OR
-npm install
+npm install --legacy-peer-deps
 ```
 
 This will then setup all the development and production dependencies we need.
@@ -52,8 +50,6 @@ This will then setup all the development and production dependencies we need.
 Now simply run this to boot up the server:
 
 ```
-yarn start
-# OR
 npm start
 ```
 
