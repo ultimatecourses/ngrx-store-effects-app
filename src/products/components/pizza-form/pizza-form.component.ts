@@ -14,7 +14,9 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-
+import { Store } from "@ngrx/store";
+import * as fromRoot from '../../../app/store';
+import * as fromStore from '../../store'
 import { map } from 'rxjs/operators';
 
 import { Pizza } from '../../models/pizza.model';
@@ -22,6 +24,7 @@ import { Topping } from '../../models/topping.model';
 
 @Component({
   selector: 'pizza-form',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['pizza-form.component.scss'],
   template: `
     <div class="pizza-form">
@@ -102,7 +105,9 @@ export class PizzaFormComponent implements OnChanges {
     toppings: [[]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder, private store: Store<fromStore.ProductsState>
+  ) { }
 
   get nameControl() {
     return this.form.get('name') as FormControl;
@@ -120,7 +125,7 @@ export class PizzaFormComponent implements OnChanges {
     this.form
       .get('toppings')
       .valueChanges.pipe(
-        map(toppings => toppings.map((topping: Topping) => topping.id))
+      map(toppings => toppings.map((topping: Topping) => topping.id))
       )
       .subscribe(value => this.selected.emit(value));
   }
@@ -136,6 +141,10 @@ export class PizzaFormComponent implements OnChanges {
     const { value, valid, touched } = form;
     if (touched && valid) {
       this.update.emit({ ...this.pizza, ...value });
+    } else {
+      this.store.dispatch(new fromRoot.Go({
+        path: ['/products']
+      }));
     }
   }
 
